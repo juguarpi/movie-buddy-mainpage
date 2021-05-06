@@ -1,0 +1,106 @@
+:root {
+  --line: 2px solid var(--grey-light-4);
+  --primary: hsla(4, 97%, 60%, 1);
+  --primary-light: hsla(4, 97%, 72%, 1);
+  --primary-dark: hsla(4, 97%, 50%, 1);
+  --primary-light2: hsla(4, 97%, 72%, 0.5);
+  --shadow-dark: 0 2.5rem 5rem rgba(0, 0, 0, 0.2);
+  --shadow-light: 0 2.5rem 5rem rgba(0, 0, 0, 0.1);
+  --grey-dark-1: #222;
+  --grey-dark-2: #555;
+  --grey-dark-3: #888;
+  --grey-dark-4: #999;
+  --grey-light-1: #faf9f9;
+  --grey-light-2: #f4f2f2;
+  --grey-light-3: #f0eeee;
+  --grey-light-4: #ccc;
+}
+
+@mixin respond($anything) {
+  @if $anything==hg {
+    @media only screen and (min-width: 1800px) {
+      @content;
+    }
+  }
+
+  @if $anything==size1400 {
+    @media only screen and (max-width: 1400px) {
+      @content;
+    }
+  }
+
+  @if $anything==md {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $anything==sm {
+    @media only screen and (max-width: 900px) {
+      @content;
+    }
+  }
+
+  @if $anything==size750 {
+    @media only screen and (max-width: 750px) {
+      @content;
+    }
+  }
+
+  @if $anything==xs {
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if $anything==xxs {
+    @media only screen and (max-width: 400px) {
+      @content;
+    }
+  }
+}
+
+//hg >1800px
+//lg >1200px (normal desktop)
+//md >900 px
+//sm >600 px
+//xs <600px
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; //1rem = 10px
+  box-sizing: border-box;
+
+  @include respond(hg) {
+    font-size: 75%; //1rem = 12px
+  }
+
+  @include respond(md) {
+    font-size: 56.25%; //9px
+  }
+
+  @include respond(sm) {
+    //8px
+    font-size: 50%;
+  }
+}
+
+body {
+  background-image: linear-gradient(
+    to right bottom,
+    var(--primary-light),
+    var(--primary-dark)
+  );
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  color: var(--grey-dark-2);
+  line-height: 1.6;
+  min-height: 100vh;
+}
