@@ -78,9 +78,9 @@ html {
   font-size: 62.5%; //1rem = 10px
   box-sizing: border-box;
 
-  @include respond(hg) {
-    font-size: 75%; //1rem = 12px
-  }
+  // @include respond(hg) {
+  //   font-size: 75%; //1rem = 12px
+  // }
 
   @include respond(md) {
     font-size: 56.25%; //9px
